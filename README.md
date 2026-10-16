@@ -133,6 +133,47 @@ git push -u origin main
 3. Drag and drop the project folder contents (excluding `node_modules` and `dist`).
 4. Commit your changes.
 
+## 🌐 Deploying to GitHub Pages (Fix for Blank White Page)
+
+If you deployed this website to GitHub Pages and saw a **blank white page**, here is why and how it has been fixed:
+
+### 🔍 Why did the blank white screen happen?
+1. **Absolute Base URL**: GitHub Pages hosts repositories under subpaths (e.g., `https://<username>.github.io/<repo-name>/`). By default, Vite uses `/` for asset paths. As a result, the browser attempted to load JavaScript bundles from `https://<username>.github.io/assets/...` instead of your repository subfolder, leading to `404 Not Found` errors.
+2. **Jekyll Processing**: GitHub Pages defaults to Jekyll, which skips files or directories starting with underscores.
+3. **Unbuilt Source Code**: If the repository root is served instead of building the static bundle into `dist/`, browsers cannot execute raw `.tsx` files directly.
+
+### ✅ Fixes Included in this Project:
+- `vite.config.ts`: Added `base: './'` so all script and stylesheet URLs are relative and work on any repository name or custom domain.
+- `public/.nojekyll`: Disables Jekyll so all Vite output files are properly served.
+- `public/404.html`: Redirects direct link visits to the single-page application.
+- `.github/workflows/deploy.yml`: Provides automated GitHub Actions CI/CD to build and publish automatically.
+- `package.json`: Added `deploy` and `predeploy` scripts (`gh-pages`).
+
+---
+
+### 🚀 How to Deploy to GitHub Pages (Choose either option)
+
+#### Option 1: Automated Deployment with GitHub Actions (Recommended)
+1. Push your repository to GitHub:
+   ```bash
+   git add .
+   git commit -m "Deploy EngiNotes to GitHub Pages"
+   git push origin main
+   ```
+2. Open your repository on **GitHub.com**.
+3. Go to **Settings** > **Pages** (in the left sidebar).
+4. Under **Build and deployment > Source**, choose **"GitHub Actions"**.
+5. GitHub will automatically trigger the workflow in `.github/workflows/deploy.yml` and publish your site!
+
+#### Option 2: Deploy using the `gh-pages` command
+1. In your local terminal, run:
+   ```bash
+   npm run deploy
+   ```
+2. This will run `npm run build` and push the compiled `dist/` directory to a new `gh-pages` branch on GitHub.
+3. On GitHub.com, go to **Settings** > **Pages** > under **Branch**, select `gh-pages` and `/ (root)`.
+4. Click **Save**. Your site will be live!
+
 ---
 
 ## 🛡️ License
