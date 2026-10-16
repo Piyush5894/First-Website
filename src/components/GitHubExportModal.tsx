@@ -312,6 +312,29 @@ git push -u origin main`;
                     This automatically runs <code className="text-slate-300">npm run build</code> and pushes the bundled files to the <code className="text-slate-300">gh-pages</code> branch.
                   </p>
                 </div>
+
+                {/* Method 3 */}
+                <div className="bg-slate-950/80 border border-slate-800 rounded-2xl p-5 space-y-3">
+                  <div className="flex items-center gap-2">
+                    <span className="w-6 h-6 rounded-full bg-slate-800 text-slate-300 text-xs font-bold flex items-center justify-center">
+                      3
+                    </span>
+                    <h5 className="text-sm font-bold text-white">
+                      Or Deploy via GitHub's Built-in <code className="text-sky-300 font-mono text-xs">/docs</code> Folder
+                    </h5>
+                  </div>
+                  <p className="text-xs text-slate-300 leading-relaxed">
+                    The build script automatically outputs the compiled site into both <code className="text-sky-300 font-mono">dist/</code> and <code className="text-sky-300 font-mono">docs/</code>. You can keep GitHub Pages on standard branch mode:
+                  </p>
+                  <div className="p-3.5 bg-slate-900 rounded-xl border border-slate-800 space-y-2 text-xs text-slate-300">
+                    <ol className="list-decimal list-inside space-y-1 text-slate-300 text-[11px]">
+                      <li>Go to <strong>Settings</strong> &gt; <strong>Pages</strong> in your GitHub repository.</li>
+                      <li>Under <strong>Build and deployment &gt; Source</strong>, keep <strong>"Deploy from a branch"</strong>.</li>
+                      <li>Under <strong>Branch</strong>, select <strong className="text-sky-400">main</strong> (or master) and choose the <strong className="text-emerald-400">/docs</strong> folder from the dropdown.</li>
+                      <li>Click <strong>Save</strong>. Your website will be live with zero blank page issues!</li>
+                    </ol>
+                  </div>
+                </div>
               </div>
             </div>
           )}

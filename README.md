@@ -174,6 +174,22 @@ If you deployed this website to GitHub Pages and saw a **blank white page**, her
 3. On GitHub.com, go to **Settings** > **Pages** > under **Branch**, select `gh-pages` and `/ (root)`.
 4. Click **Save**. Your site will be live!
 
+#### Option 3: Deploy via GitHub's Built-in `/docs` folder (Simplest)
+1. In your project, run:
+   ```bash
+   npm run build
+   ```
+   *(This builds `dist/` and simultaneously copies it to `docs/`)*
+2. Commit and push everything:
+   ```bash
+   git add .
+   git commit -m "Build website for GitHub Pages"
+   git push origin main
+   ```
+3. On GitHub.com, go to **Settings** > **Pages**.
+4. Keep **"Deploy from a branch"**, select branch **`main`** (or `master`), and in the folder dropdown select **`/docs`**.
+5. Click **Save**. Your website is immediately active!
+
 ---
 
 ## 🛡️ License
