@@ -190,6 +190,10 @@ If you deployed this website to GitHub Pages and saw a **blank white page**, her
 4. Keep **"Deploy from a branch"**, select branch **`main`** (or `master`), and in the folder dropdown select **`/docs`**.
 5. Click **Save**. Your website is immediately active!
 
+#### Option 4: Deploy using GitHub's Default `/ (root)` folder
+The build process also places compiled bundles in `./assets/` and includes `.nojekyll` and `404.html` in the root folder.
+If your repository is set to branch **`main`** with folder **`/ (root)`**, GitHub Pages will automatically load the pre-compiled assets without a blank page!
+
 ---
 
 ## 🛡️ License

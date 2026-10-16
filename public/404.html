@@ -4,12 +4,13 @@
     <meta charset="utf-8">
     <title>EngiNotes - Redirecting...</title>
     <script>
-      // Single Page Application redirect to repository root on GitHub Pages
+      // Single Page Application redirect to repository root or /docs/ on GitHub Pages
       var l = window.location;
       var pathParts = l.pathname.split('/').filter(Boolean);
-      var basePath = (l.hostname.endsWith('github.io') && pathParts.length > 0)
-        ? '/' + pathParts[0] + '/'
-        : '/';
+      var basePath = '/';
+      if (l.hostname.endsWith('github.io') && pathParts.length > 0) {
+        basePath = '/' + pathParts[0] + (pathParts[1] === 'docs' ? '/docs/' : '/');
+      }
       l.replace(l.protocol + '//' + l.host + basePath);
     </script>
   </head>

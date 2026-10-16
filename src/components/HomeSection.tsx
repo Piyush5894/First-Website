@@ -223,6 +223,14 @@ export const HomeSection: React.FC<HomeSectionProps> = ({
                 <Brain className="w-4 h-4 text-sky-400" />
                 <span>Semester Quiz Arena</span>
               </button>
+
+              <button
+                onClick={() => onNavigate('login')}
+                className="flex items-center gap-2 px-4 py-3 rounded-2xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-bold text-xs sm:text-sm shadow-md transition-all cursor-pointer"
+              >
+                <Lock className="w-4 h-4 text-emerald-200" />
+                <span>Student Login (Email & Password)</span>
+              </button>
             </div>
           </div>
 

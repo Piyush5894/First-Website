@@ -61,8 +61,11 @@ export const Navbar: React.FC<NavbarProps> = ({
     { id: 'branches', label: 'Branches', icon: <FolderGit2 className="w-4 h-4" /> },
     { id: 'upload', label: 'Upload', icon: <Upload className="w-4 h-4" />, badge: '+50 pts' },
     ...(isAuthenticated
-      ? [{ id: 'account' as SectionType, label: 'My Account', icon: <UserIcon className="w-4 h-4" /> }]
-      : [{ id: 'login' as SectionType, label: 'Login', icon: <Lock className="w-4 h-4 text-emerald-400" />, badge: 'Auth' }])
+      ? [
+          { id: 'account' as SectionType, label: 'My Account', icon: <UserIcon className="w-4 h-4" /> },
+          { id: 'login' as SectionType, label: 'Login / Switch', icon: <Lock className="w-4 h-4 text-emerald-400" /> }
+        ]
+      : [{ id: 'login' as SectionType, label: 'Student Login', icon: <Lock className="w-4 h-4 text-emerald-400" />, badge: 'Auth' }])
   ];
 
   return (
@@ -235,6 +238,17 @@ export const Navbar: React.FC<NavbarProps> = ({
                   </button>
 
                   <div className="border-t border-slate-800/80 my-1"></div>
+
+                  <button
+                    onClick={() => {
+                      handleNavClick('login');
+                      setUserDropdownOpen(false);
+                    }}
+                    className="w-full flex items-center gap-2 px-3 py-2 text-xs font-medium text-emerald-400 hover:bg-emerald-500/10 rounded-xl transition-colors cursor-pointer"
+                  >
+                    <Lock className="w-4 h-4" />
+                    <span>Switch / Student Login</span>
+                  </button>
 
                   <button
                     onClick={() => {

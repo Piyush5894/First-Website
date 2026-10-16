@@ -156,8 +156,8 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     } catch {
       // fallback
     }
-    // Default active user is the demo student for seamless immediate access
-    return PRE_SEEDED_STUDENTS[0].user;
+    // Default state: not logged in so the user can see and test the Login page with email & password!
+    return null;
   });
 
   const [rememberedEmail, setRememberedEmailState] = useState<string>(() => {

@@ -335,6 +335,21 @@ git push -u origin main`;
                     </ol>
                   </div>
                 </div>
+
+                {/* Method 4 */}
+                <div className="bg-slate-950/80 border border-slate-800 rounded-2xl p-5 space-y-3">
+                  <div className="flex items-center gap-2">
+                    <span className="w-6 h-6 rounded-full bg-slate-800 text-slate-300 text-xs font-bold flex items-center justify-center">
+                      4
+                    </span>
+                    <h5 className="text-sm font-bold text-white">
+                      Or Keep GitHub's Default <code className="text-sky-300 font-mono text-xs">/ (root)</code> Folder
+                    </h5>
+                  </div>
+                  <p className="text-xs text-slate-300 leading-relaxed">
+                    We've included the compiled <code className="text-sky-300 font-mono">assets/</code> bundle and <code className="text-sky-300 font-mono">.nojekyll</code> in the repository root directory as well! Even if you leave GitHub Pages on <strong>main &gt; / (root)</strong>, the site will automatically load the pre-built bundle without showing a blank page.
+                  </p>
+                </div>
               </div>
             </div>
           )}
